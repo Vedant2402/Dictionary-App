@@ -10,7 +10,7 @@ const wordSuggestions = [
   "serendipity", "ephemeral", "quintessential", "eloquence", 
   "luminous", "resonance", "ethereal", "solitude", "petrichor",
   "aurora", "sonorous", "limerence", "epiphany", "halcyon", 
-  "effervescent", "sonder", "opulence", "ineffable", "ayurveda"
+  "effervescent", "sonder", "opulence", "ineffable"
 ];
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   function getRandomWord() {
     const randomIndex = Math.floor(Math.random() * wordSuggestions.length);
@@ -87,10 +88,16 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  // Automatically detect system dark mode preference
+  useEffect(() => {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setDarkMode(prefersDarkMode);
+  }, []);
+
   return (
-    <div className="app">
+    <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <header className="header">
-        <h1 className="logo">Vedant</h1>
+        <h1 className="logo">Vedant's Dictionary App</h1>
         <h2 className="tagline">Find the perfect word</h2>
         <p className="suggestion">Try "<span className="suggestion-word">{suggestionWord}</span>" or any word...</p>
       </header>
@@ -178,9 +185,9 @@ function App() {
       <footer className="footer">
         <p>© {new Date().getFullYear()} Vedant Dictionary. All rights reserved.</p>
         <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/contact">Contact</a>
+          <a href="https://github.com/Vedant2402">Github</a>
+          <a href="/privacyhttps://www.linkedin.com/in/vedant-kankate/">LinkedIn</a>
+          <a href="mailto:vedantkankate22@gmail.com">Mail</a>
         </div>
       </footer>
     </div>
