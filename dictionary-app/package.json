@@ -2,6 +2,7 @@
   "name": "dictionary-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://od-api.oxforddictionaries.com",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -43,4 +44,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
