@@ -37,7 +37,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/vedants-dictionary-app.git
+   git clone https://github.com/vedant2402/vedants-dictionary-app.git
    cd vedants-dictionary-app
    npm install
    npm start
